@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina - Política de Privacidade</title>
+    <meta name="description" content="Política de Privacidade do aplicativo Lumina - Leituras de Tarot com IA">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Lumina Mystic Twilight Theme */
+            --twilight-shadow: #1A1525;
+            --mystic-elevation: #2A1F3D;
+            --amethyst-glow: #A878C8;
+            --virtue-ember: #E5C589;
+            --moonlight-cloud: #F5F0F8;
+            --sage-stone: #B8B8B0;
+            --nature-glow: #9FC89F;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, var(--twilight-shadow) 0%, #251A35 50%, var(--twilight-shadow) 100%);
+            color: var(--moonlight-cloud);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 24px;
+            box-shadow: 0 8px 32px rgba(168, 120, 200, 0.4), 0 0 0 3px rgba(168, 120, 200, 0.3);
+            overflow: hidden;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, var(--amethyst-glow), var(--virtue-ember));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            color: var(--sage-stone);
+            font-size: 1rem;
+        }
+
+        /* Back link */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--amethyst-glow);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 24px;
+            transition: opacity 0.2s;
+        }
+
+        .back-link:hover {
+            opacity: 0.8;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--mystic-elevation);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--amethyst-glow);
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 24px 0 12px 0;
+            color: var(--moonlight-cloud);
+        }
+
+        .card p {
+            color: var(--sage-stone);
+            margin-bottom: 12px;
+        }
+
+        .card ul {
+            color: var(--sage-stone);
+            margin: 12px 0;
+            padding-left: 24px;
+        }
+
+        .card li {
+            margin-bottom: 8px;
+        }
+
+        .card strong {
+            color: var(--moonlight-cloud);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding-top: 32px;
+            color: var(--sage-stone);
+            font-size: 0.875rem;
+        }
+
+        .footer a {
+            color: var(--amethyst-glow);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Decorative elements */
+        .glow-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .glow-orb-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--amethyst-glow);
+            top: -100px;
+            right: -100px;
+        }
+
+        .glow-orb-2 {
+            width: 250px;
+            height: 250px;
+            background: var(--virtue-ember);
+            bottom: -50px;
+            left: -100px;
+            opacity: 0.2;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: 1px solid rgba(168, 120, 200, 0.3);
+            color: var(--sage-stone);
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            transition: all 0.2s;
+        }
+
+        .lang-btn:hover, .lang-btn.active {
+            background: var(--amethyst-glow);
+            color: var(--twilight-shadow);
+            border-color: var(--amethyst-glow);
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 24px 16px;
+            }
+
+            .header h1 {
+                font-size: 1.75rem;
+            }
+
+            .card {
+                padding: 24px;
+            }
+        }
+
+        .update-date {
+            font-size: 0.85rem;
+            color: var(--sage-stone);
+            text-align: center;
+            margin-bottom: 24px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Decorative glows -->
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+
+    <div class="container">
+        <!-- Back to support -->
+        <a href="index.html" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+            </svg>
+            <span class="lang-pt">Voltar ao Suporte</span>
+            <span class="lang-en hidden">Back to Support</span>
+            <span class="lang-es hidden">Volver al Soporte</span>
+        </a>
+
+        <!-- Language Toggle -->
+        <div class="lang-toggle">
+            <button class="lang-btn active" onclick="setLanguage('pt')">Português</button>
+            <button class="lang-btn" onclick="setLanguage('en')">English</button>
+            <button class="lang-btn" onclick="setLanguage('es')">Español</button>
+        </div>
+
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <img src="app_icon.png" alt="Lumina Logo">
+            </div>
+            <h1>Lumina</h1>
+            <p class="lang-pt">Política de Privacidade</p>
+            <p class="lang-en hidden">Privacy Policy</p>
+            <p class="lang-es hidden">Política de Privacidad</p>
+        </header>
+
+        <!-- Update Date -->
+        <p class="update-date">
+            <span class="lang-pt">Última atualização: 31 de Janeiro de 2026</span>
+            <span class="lang-en hidden">Last updated: January 31, 2026</span>
+            <span class="lang-es hidden">Última actualización: 31 de Enero de 2026</span>
+        </p>
+
+        <!-- PORTUGUESE VERSION -->
+        <div class="lang-pt">
+            <div class="card">
+                <h2>1. Introdução</h2>
+                <p>A Simbio Labs ("nós", "nosso" ou "empresa") opera o aplicativo Lumina ("Aplicativo"). Esta Política de Privacidade explica como coletamos, usamos, armazenamos e protegemos suas informações pessoais quando você usa nosso Aplicativo.</p>
+                <p>Ao usar o Lumina, você concorda com a coleta e uso de informações de acordo com esta política.</p>
+            </div>
+
+            <div class="card">
+                <h2>2. Informações que Coletamos</h2>
+                
+                <h3>2.1 Informações de Conta</h3>
+                <ul>
+                    <li><strong>E-mail:</strong> Quando você cria uma conta (opcional)</li>
+                    <li><strong>Nome de exibição:</strong> Nome que você escolhe mostrar no app (opcional)</li>
+                    <li><strong>Foto de perfil:</strong> Imagem que você escolhe enviar (opcional)</li>
+                </ul>
+
+                <h3>2.2 Informações de Uso</h3>
+                <ul>
+                    <li><strong>Histórico de leituras:</strong> As leituras de tarot que você realiza, incluindo perguntas e interpretações</li>
+                    <li><strong>Transações:</strong> Histórico de compras de Lumens (moeda virtual do app)</li>
+                </ul>
+
+                <h3>2.3 Informações Técnicas</h3>
+                <ul>
+                    <li><strong>Identificador do dispositivo:</strong> Um código único gerado aleatoriamente para gerenciar sessões anônimas e o limite de leituras gratuitas</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>3. Como Usamos Suas Informações</h2>
+                <p>Usamos as informações coletadas para:</p>
+                <ul>
+                    <li>Fornecer e manter o serviço de leituras de tarot</li>
+                    <li>Gerenciar sua conta e autenticação</li>
+                    <li>Salvar seu histórico de leituras para consulta futura</li>
+                    <li>Processar compras de Lumens</li>
+                    <li>Controlar o limite de leituras gratuitas</li>
+                    <li>Melhorar nossos serviços</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>4. Compartilhamento de Dados</h2>
+                <p>Não vendemos, alugamos ou compartilhamos suas informações pessoais com terceiros para fins de marketing.</p>
+                <p>Utilizamos os seguintes serviços de terceiros para operar o aplicativo:</p>
+                <ul>
+                    <li><strong>Supabase:</strong> Para armazenamento seguro de dados e autenticação</li>
+                    <li><strong>Apple:</strong> Para processamento de compras in-app</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>5. Segurança dos Dados</h2>
+                <p>Implementamos medidas de segurança técnicas e organizacionais para proteger suas informações, incluindo:</p>
+                <ul>
+                    <li>Criptografia de dados em trânsito (HTTPS/TLS)</li>
+                    <li>Armazenamento seguro de senhas (hash)</li>
+                    <li>Armazenamento seguro de tokens no dispositivo (iOS Keychain)</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>6. Seus Direitos</h2>
+                <p>Você tem o direito de:</p>
+                <ul>
+                    <li><strong>Acessar:</strong> Solicitar uma cópia dos seus dados pessoais</li>
+                    <li><strong>Corrigir:</strong> Atualizar ou corrigir suas informações no app</li>
+                    <li><strong>Excluir:</strong> Solicitar a exclusão da sua conta e dados</li>
+                    <li><strong>Portabilidade:</strong> Solicitar seus dados em formato legível</li>
+                </ul>
+                <p>Para exercer esses direitos, entre em contato conosco pelo e-mail abaixo.</p>
+            </div>
+
+            <div class="card">
+                <h2>7. Retenção de Dados</h2>
+                <p>Mantemos suas informações enquanto sua conta estiver ativa. Se você solicitar a exclusão da conta, removeremos seus dados pessoais em até 30 dias, exceto quando houver obrigação legal de retenção.</p>
+            </div>
+
+            <div class="card">
+                <h2>8. Menores de Idade</h2>
+                <p>O Lumina não é destinado a menores de 13 anos. Não coletamos intencionalmente informações de crianças menores de 13 anos.</p>
+            </div>
+
+            <div class="card">
+                <h2>9. Alterações nesta Política</h2>
+                <p>Podemos atualizar esta Política de Privacidade periodicamente. Notificaremos sobre alterações significativas através do aplicativo ou por e-mail.</p>
+            </div>
+
+            <div class="card">
+                <h2>10. Contato</h2>
+                <p>Se você tiver dúvidas sobre esta Política de Privacidade ou sobre o tratamento dos seus dados, entre em contato:</p>
+                <p><strong>E-mail:</strong> <a href="mailto:feedback@simbiolabs.com.br">feedback@simbiolabs.com.br</a></p>
+                <p><strong>Empresa:</strong> Simbio Labs</p>
+            </div>
+        </div>
+
+        <!-- ENGLISH VERSION -->
+        <div class="lang-en hidden">
+            <div class="card">
+                <h2>1. Introduction</h2>
+                <p>Simbio Labs ("we", "our", or "company") operates the Lumina application ("App"). This Privacy Policy explains how we collect, use, store, and protect your personal information when you use our App.</p>
+                <p>By using Lumina, you agree to the collection and use of information in accordance with this policy.</p>
+            </div>
+
+            <div class="card">
+                <h2>2. Information We Collect</h2>
+                
+                <h3>2.1 Account Information</h3>
+                <ul>
+                    <li><strong>Email:</strong> When you create an account (optional)</li>
+                    <li><strong>Display name:</strong> The name you choose to show in the app (optional)</li>
+                    <li><strong>Profile photo:</strong> Image you choose to upload (optional)</li>
+                </ul>
+
+                <h3>2.2 Usage Information</h3>
+                <ul>
+                    <li><strong>Reading history:</strong> The tarot readings you perform, including questions and interpretations</li>
+                    <li><strong>Transactions:</strong> Purchase history of Lumens (app's virtual currency)</li>
+                </ul>
+
+                <h3>2.3 Technical Information</h3>
+                <ul>
+                    <li><strong>Device identifier:</strong> A randomly generated unique code to manage anonymous sessions and free reading limits</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>3. How We Use Your Information</h2>
+                <p>We use the collected information to:</p>
+                <ul>
+                    <li>Provide and maintain the tarot reading service</li>
+                    <li>Manage your account and authentication</li>
+                    <li>Save your reading history for future reference</li>
+                    <li>Process Lumens purchases</li>
+                    <li>Control free reading limits</li>
+                    <li>Improve our services</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>4. Data Sharing</h2>
+                <p>We do not sell, rent, or share your personal information with third parties for marketing purposes.</p>
+                <p>We use the following third-party services to operate the app:</p>
+                <ul>
+                    <li><strong>Supabase:</strong> For secure data storage and authentication</li>
+                    <li><strong>Apple:</strong> For in-app purchase processing</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>5. Data Security</h2>
+                <p>We implement technical and organizational security measures to protect your information, including:</p>
+                <ul>
+                    <li>Encryption of data in transit (HTTPS/TLS)</li>
+                    <li>Secure password storage (hashing)</li>
+                    <li>Secure token storage on device (iOS Keychain)</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>6. Your Rights</h2>
+                <p>You have the right to:</p>
+                <ul>
+                    <li><strong>Access:</strong> Request a copy of your personal data</li>
+                    <li><strong>Correct:</strong> Update or correct your information in the app</li>
+                    <li><strong>Delete:</strong> Request deletion of your account and data</li>
+                    <li><strong>Portability:</strong> Request your data in a readable format</li>
+                </ul>
+                <p>To exercise these rights, contact us at the email below.</p>
+            </div>
+
+            <div class="card">
+                <h2>7. Data Retention</h2>
+                <p>We keep your information as long as your account is active. If you request account deletion, we will remove your personal data within 30 days, except where legal retention obligations apply.</p>
+            </div>
+
+            <div class="card">
+                <h2>8. Children's Privacy</h2>
+                <p>Lumina is not intended for children under 13 years of age. We do not knowingly collect information from children under 13.</p>
+            </div>
+
+            <div class="card">
+                <h2>9. Changes to This Policy</h2>
+                <p>We may update this Privacy Policy periodically. We will notify you of significant changes through the app or by email.</p>
+            </div>
+
+            <div class="card">
+                <h2>10. Contact</h2>
+                <p>If you have questions about this Privacy Policy or how we handle your data, please contact:</p>
+                <p><strong>Email:</strong> <a href="mailto:feedback@simbiolabs.com.br">feedback@simbiolabs.com.br</a></p>
+                <p><strong>Company:</strong> Simbio Labs</p>
+            </div>
+        </div>
+
+        <!-- SPANISH VERSION -->
+        <div class="lang-es hidden">
+            <div class="card">
+                <h2>1. Introducción</h2>
+                <p>Simbio Labs ("nosotros", "nuestro" o "empresa") opera la aplicación Lumina ("Aplicación"). Esta Política de Privacidad explica cómo recopilamos, usamos, almacenamos y protegemos su información personal cuando usa nuestra Aplicación.</p>
+                <p>Al usar Lumina, usted acepta la recopilación y uso de información de acuerdo con esta política.</p>
+            </div>
+
+            <div class="card">
+                <h2>2. Información que Recopilamos</h2>
+                
+                <h3>2.1 Información de Cuenta</h3>
+                <ul>
+                    <li><strong>Correo electrónico:</strong> Cuando crea una cuenta (opcional)</li>
+                    <li><strong>Nombre de usuario:</strong> El nombre que elige mostrar en la app (opcional)</li>
+                    <li><strong>Foto de perfil:</strong> Imagen que elige subir (opcional)</li>
+                </ul>
+
+                <h3>2.2 Información de Uso</h3>
+                <ul>
+                    <li><strong>Historial de lecturas:</strong> Las lecturas de tarot que realiza, incluyendo preguntas e interpretaciones</li>
+                    <li><strong>Transacciones:</strong> Historial de compras de Lumens (moneda virtual de la app)</li>
+                </ul>
+
+                <h3>2.3 Información Técnica</h3>
+                <ul>
+                    <li><strong>Identificador del dispositivo:</strong> Un código único generado aleatoriamente para gestionar sesiones anónimas y límites de lecturas gratuitas</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>3. Cómo Usamos Su Información</h2>
+                <p>Usamos la información recopilada para:</p>
+                <ul>
+                    <li>Proporcionar y mantener el servicio de lecturas de tarot</li>
+                    <li>Gestionar su cuenta y autenticación</li>
+                    <li>Guardar su historial de lecturas para consulta futura</li>
+                    <li>Procesar compras de Lumens</li>
+                    <li>Controlar el límite de lecturas gratuitas</li>
+                    <li>Mejorar nuestros servicios</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>4. Compartir Datos</h2>
+                <p>No vendemos, alquilamos ni compartimos su información personal con terceros para fines de marketing.</p>
+                <p>Utilizamos los siguientes servicios de terceros para operar la aplicación:</p>
+                <ul>
+                    <li><strong>Supabase:</strong> Para almacenamiento seguro de datos y autenticación</li>
+                    <li><strong>Apple:</strong> Para procesamiento de compras in-app</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>5. Seguridad de los Datos</h2>
+                <p>Implementamos medidas de seguridad técnicas y organizativas para proteger su información, incluyendo:</p>
+                <ul>
+                    <li>Cifrado de datos en tránsito (HTTPS/TLS)</li>
+                    <li>Almacenamiento seguro de contraseñas (hash)</li>
+                    <li>Almacenamiento seguro de tokens en el dispositivo (iOS Keychain)</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>6. Sus Derechos</h2>
+                <p>Usted tiene derecho a:</p>
+                <ul>
+                    <li><strong>Acceder:</strong> Solicitar una copia de sus datos personales</li>
+                    <li><strong>Corregir:</strong> Actualizar o corregir su información en la app</li>
+                    <li><strong>Eliminar:</strong> Solicitar la eliminación de su cuenta y datos</li>
+                    <li><strong>Portabilidad:</strong> Solicitar sus datos en formato legible</li>
+                </ul>
+                <p>Para ejercer estos derechos, contáctenos al correo electrónico a continuación.</p>
+            </div>
+
+            <div class="card">
+                <h2>7. Retención de Datos</h2>
+                <p>Mantenemos su información mientras su cuenta esté activa. Si solicita la eliminación de la cuenta, eliminaremos sus datos personales en un plazo de 30 días, excepto cuando existan obligaciones legales de retención.</p>
+            </div>
+
+            <div class="card">
+                <h2>8. Privacidad de Menores</h2>
+                <p>Lumina no está destinado a menores de 13 años. No recopilamos intencionalmente información de niños menores de 13 años.</p>
+            </div>
+
+            <div class="card">
+                <h2>9. Cambios en esta Política</h2>
+                <p>Podemos actualizar esta Política de Privacidad periódicamente. Le notificaremos sobre cambios significativos a través de la aplicación o por correo electrónico.</p>
+            </div>
+
+            <div class="card">
+                <h2>10. Contacto</h2>
+                <p>Si tiene preguntas sobre esta Política de Privacidad o sobre el tratamiento de sus datos, contáctenos:</p>
+                <p><strong>Correo:</strong> <a href="mailto:feedback@simbiolabs.com.br">feedback@simbiolabs.com.br</a></p>
+                <p><strong>Empresa:</strong> Simbio Labs</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2026 Simbio Labs. <span class="lang-pt">Todos os direitos reservados.</span><span class="lang-en hidden">All rights reserved.</span><span class="lang-es hidden">Todos los derechos reservados.</span></p>
+            <p style="margin-top: 8px;">
+                <a href="index.html">
+                    <span class="lang-pt">Suporte</span>
+                    <span class="lang-en hidden">Support</span>
+                    <span class="lang-es hidden">Soporte</span>
+                </a>
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        function setLanguage(lang) {
+            // Update buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Hide all language content
+            document.querySelectorAll('.lang-pt, .lang-en, .lang-es').forEach(el => {
+                el.classList.add('hidden');
+            });
+
+            // Show selected language content
+            document.querySelectorAll('.lang-' + lang).forEach(el => {
+                el.classList.remove('hidden');
+            });
+
+            // Save preference
+            localStorage.setItem('lumina-lang', lang);
+        }
+
+        // Load saved language preference
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('lumina-lang');
+            if (savedLang && ['pt', 'en', 'es'].includes(savedLang)) {
+                // Find and click the correct button
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    if ((savedLang === 'pt' && btn.textContent.includes('Portugu')) ||
+                        (savedLang === 'en' && btn.textContent.includes('English')) ||
+                        (savedLang === 'es' && btn.textContent.includes('Español'))) {
+                        btn.click();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
