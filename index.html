@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina - Suporte</title>
+    <meta name="description" content="Página de suporte do aplicativo Lumina - Leituras de Tarot com IA">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Lumina Mystic Twilight Theme */
+            --twilight-shadow: #1A1525;
+            --mystic-elevation: #2A1F3D;
+            --amethyst-glow: #A878C8;
+            --virtue-ember: #E5C589;
+            --moonlight-cloud: #F5F0F8;
+            --sage-stone: #B8B8B0;
+            --nature-glow: #9FC89F;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, var(--twilight-shadow) 0%, #251A35 50%, var(--twilight-shadow) 100%);
+            color: var(--moonlight-cloud);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--amethyst-glow), var(--virtue-ember));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            box-shadow: 0 8px 32px rgba(168, 120, 200, 0.3);
+        }
+
+        .logo svg {
+            width: 48px;
+            height: 48px;
+            fill: var(--twilight-shadow);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, var(--amethyst-glow), var(--virtue-ember));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            color: var(--sage-stone);
+            font-size: 1.1rem;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--mystic-elevation);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--amethyst-glow);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .card h2 .icon {
+            width: 28px;
+            height: 28px;
+            background: rgba(168, 120, 200, 0.15);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card h2 .icon svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--amethyst-glow);
+        }
+
+        .card p {
+            color: var(--sage-stone);
+            margin-bottom: 16px;
+        }
+
+        /* Contact Button */
+        .contact-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--amethyst-glow), #8B5CB8);
+            color: var(--twilight-shadow);
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 16px rgba(168, 120, 200, 0.3);
+        }
+
+        .contact-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(168, 120, 200, 0.4);
+        }
+
+        .contact-button svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--twilight-shadow);
+        }
+
+        /* FAQ */
+        .faq-item {
+            border-bottom: 1px solid rgba(168, 120, 200, 0.15);
+            padding: 20px 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .faq-item:first-child {
+            padding-top: 0;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: var(--moonlight-cloud);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .faq-question::before {
+            content: "Q";
+            background: var(--virtue-ember);
+            color: var(--twilight-shadow);
+            width: 24px;
+            height: 24px;
+            min-width: 24px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .faq-answer {
+            color: var(--sage-stone);
+            padding-left: 36px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding-top: 32px;
+            color: var(--sage-stone);
+            font-size: 0.875rem;
+        }
+
+        .footer a {
+            color: var(--amethyst-glow);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Decorative elements */
+        .glow-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .glow-orb-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--amethyst-glow);
+            top: -100px;
+            right: -100px;
+        }
+
+        .glow-orb-2 {
+            width: 250px;
+            height: 250px;
+            background: var(--virtue-ember);
+            bottom: -50px;
+            left: -100px;
+            opacity: 0.2;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: 1px solid rgba(168, 120, 200, 0.3);
+            color: var(--sage-stone);
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            transition: all 0.2s;
+        }
+
+        .lang-btn:hover, .lang-btn.active {
+            background: var(--amethyst-glow);
+            color: var(--twilight-shadow);
+            border-color: var(--amethyst-glow);
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 24px 16px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .card {
+                padding: 24px;
+            }
+
+            .contact-button {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Decorative glows -->
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+
+    <div class="container">
+        <!-- Language Toggle -->
+        <div class="lang-toggle">
+            <button class="lang-btn active" onclick="setLanguage('pt')">Português</button>
+            <button class="lang-btn" onclick="setLanguage('en')">English</button>
+            <button class="lang-btn" onclick="setLanguage('es')">Español</button>
+        </div>
+
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+            </div>
+            <h1>Lumina</h1>
+            <p class="lang-pt">Suporte ao Usuário</p>
+            <p class="lang-en hidden">User Support</p>
+            <p class="lang-es hidden">Soporte al Usuario</p>
+        </header>
+
+        <!-- Contact Card -->
+        <div class="card">
+            <h2>
+                <span class="icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                </span>
+                <span class="lang-pt">Entre em Contato</span>
+                <span class="lang-en hidden">Contact Us</span>
+                <span class="lang-es hidden">Contáctenos</span>
+            </h2>
+            <p class="lang-pt">Tem dúvidas, sugestões ou encontrou algum problema? Estamos aqui para ajudar!</p>
+            <p class="lang-en hidden">Have questions, suggestions, or found an issue? We're here to help!</p>
+            <p class="lang-es hidden">¿Tienes preguntas, sugerencias o encontraste algún problema? ¡Estamos aquí para ayudar!</p>
+            <a href="mailto:feedback@simbiolabs.com.br" class="contact-button">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+                feedback@simbiolabs.com.br
+            </a>
+        </div>
+
+        <!-- FAQ Card -->
+        <div class="card">
+            <h2>
+                <span class="icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/>
+                    </svg>
+                </span>
+                <span class="lang-pt">Perguntas Frequentes</span>
+                <span class="lang-en hidden">Frequently Asked Questions</span>
+                <span class="lang-es hidden">Preguntas Frecuentes</span>
+            </h2>
+
+            <!-- FAQ Items - Portuguese -->
+            <div class="lang-pt">
+                <div class="faq-item">
+                    <div class="faq-question">Como funciona o tier gratuito?</div>
+                    <div class="faq-answer">Você recebe leituras gratuitas diárias sem precisar criar uma conta. Basta abrir o app e começar a tirar as cartas!</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">O que são Lumens?</div>
+                    <div class="faq-answer">Lumens são a moeda virtual do aplicativo. Você pode usar Lumens para obter leituras adicionais além do tier gratuito ou para acessar recursos premium.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Como restaurar minhas compras?</div>
+                    <div class="faq-answer">Acesse seu perfil no aplicativo e procure a opção "Restaurar Compras". Isso irá sincronizar todas as suas compras anteriores com sua conta.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">O aplicativo não está funcionando corretamente</div>
+                    <div class="faq-answer">Tente fechar completamente o app e reabri-lo. Se o problema persistir, verifique sua conexão com a internet. Caso continue com problemas, entre em contato conosco pelo email acima.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Minhas leituras são salvas?</div>
+                    <div class="faq-answer">Sim! Todas as suas leituras ficam salvas no histórico. Crie uma conta para garantir que seu histórico seja preservado mesmo se trocar de dispositivo.</div>
+                </div>
+            </div>
+
+            <!-- FAQ Items - English -->
+            <div class="lang-en hidden">
+                <div class="faq-item">
+                    <div class="faq-question">How does the free tier work?</div>
+                    <div class="faq-answer">You receive free daily readings without needing to create an account. Just open the app and start drawing cards!</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What are Lumens?</div>
+                    <div class="faq-answer">Lumens are the app's virtual currency. You can use Lumens to get additional readings beyond the free tier or to access premium features.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How do I restore my purchases?</div>
+                    <div class="faq-answer">Go to your profile in the app and look for the "Restore Purchases" option. This will sync all your previous purchases with your account.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">The app is not working properly</div>
+                    <div class="faq-answer">Try completely closing the app and reopening it. If the problem persists, check your internet connection. If issues continue, contact us at the email above.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Are my readings saved?</div>
+                    <div class="faq-answer">Yes! All your readings are saved in history. Create an account to ensure your history is preserved even if you switch devices.</div>
+                </div>
+            </div>
+
+            <!-- FAQ Items - Spanish -->
+            <div class="lang-es hidden">
+                <div class="faq-item">
+                    <div class="faq-question">¿Cómo funciona el nivel gratuito?</div>
+                    <div class="faq-answer">Recibes lecturas gratuitas diarias sin necesidad de crear una cuenta. ¡Solo abre la app y comienza a sacar las cartas!</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">¿Qué son los Lumens?</div>
+                    <div class="faq-answer">Lumens son la moneda virtual de la aplicación. Puedes usar Lumens para obtener lecturas adicionales más allá del nivel gratuito o para acceder a funciones premium.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">¿Cómo restauro mis compras?</div>
+                    <div class="faq-answer">Ve a tu perfil en la aplicación y busca la opción "Restaurar Compras". Esto sincronizará todas tus compras anteriores con tu cuenta.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">La aplicación no funciona correctamente</div>
+                    <div class="faq-answer">Intenta cerrar completamente la app y volver a abrirla. Si el problema persiste, verifica tu conexión a internet. Si los problemas continúan, contáctanos al correo indicado.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">¿Mis lecturas se guardan?</div>
+                    <div class="faq-answer">¡Sí! Todas tus lecturas se guardan en el historial. Crea una cuenta para asegurar que tu historial se preserve incluso si cambias de dispositivo.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Card -->
+        <div class="card">
+            <h2>
+                <span class="icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                </span>
+                <span class="lang-pt">Sobre o Lumina</span>
+                <span class="lang-en hidden">About Lumina</span>
+                <span class="lang-es hidden">Sobre Lumina</span>
+            </h2>
+            <p class="lang-pt">Lumina é seu companheiro pessoal de tarot, unindo sabedoria ancestral com inteligência artificial moderna para entregar leituras de cartas significativas e personalizadas. Oferecemos tiragens de Carta Única, Três Cartas e Cruz Celta, com interpretações geradas por IA que falam diretamente à sua situação.</p>
+            <p class="lang-en hidden">Lumina is your personal tarot companion, blending ancient wisdom with modern AI to deliver meaningful, personalized card readings. We offer Single Card, Three Card, and Celtic Cross spreads, with AI-generated interpretations that speak directly to your situation.</p>
+            <p class="lang-es hidden">Lumina es tu compañero personal de tarot, combinando sabiduría ancestral con inteligencia artificial moderna para ofrecer lecturas de cartas significativas y personalizadas. Ofrecemos tiradas de Carta Única, Tres Cartas y Cruz Celta, con interpretaciones generadas por IA que hablan directamente a tu situación.</p>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2026 Simbio Labs. <span class="lang-pt">Todos os direitos reservados.</span><span class="lang-en hidden">All rights reserved.</span><span class="lang-es hidden">Todos los derechos reservados.</span></p>
+        </footer>
+    </div>
+
+    <script>
+        function setLanguage(lang) {
+            // Update buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Hide all language content
+            document.querySelectorAll('.lang-pt, .lang-en, .lang-es').forEach(el => {
+                el.classList.add('hidden');
+            });
+
+            // Show selected language content
+            document.querySelectorAll('.lang-' + lang).forEach(el => {
+                el.classList.remove('hidden');
+            });
+
+            // Save preference
+            localStorage.setItem('lumina-lang', lang);
+        }
+
+        // Load saved language preference
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('lumina-lang');
+            if (savedLang && ['pt', 'en', 'es'].includes(savedLang)) {
+                // Find and click the correct button
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    if (btn.textContent.toLowerCase().includes(savedLang === 'pt' ? 'port' : savedLang === 'en' ? 'english' : 'español')) {
+                        btn.click();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
