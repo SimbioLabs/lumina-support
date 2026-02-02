@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina - Termos de Licença</title>
+    <meta name="description" content="Termos de Licença do aplicativo Lumina - Leituras de Tarot com IA">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Lumina Mystic Twilight Theme */
+            --twilight-shadow: #1A1525;
+            --mystic-elevation: #2A1F3D;
+            --amethyst-glow: #A878C8;
+            --virtue-ember: #E5C589;
+            --moonlight-cloud: #F5F0F8;
+            --sage-stone: #B8B8B0;
+            --nature-glow: #9FC89F;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, var(--twilight-shadow) 0%, #251A35 50%, var(--twilight-shadow) 100%);
+            color: var(--moonlight-cloud);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 24px;
+            box-shadow: 0 8px 32px rgba(168, 120, 200, 0.4), 0 0 0 3px rgba(168, 120, 200, 0.3);
+            overflow: hidden;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, var(--amethyst-glow), var(--virtue-ember));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            color: var(--sage-stone);
+            font-size: 1rem;
+        }
+
+        /* Back link */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--amethyst-glow);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 24px;
+            transition: opacity 0.2s;
+        }
+
+        .back-link:hover {
+            opacity: 0.8;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--mystic-elevation);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--amethyst-glow);
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 24px 0 12px 0;
+            color: var(--moonlight-cloud);
+        }
+
+        .card p {
+            color: var(--sage-stone);
+            margin-bottom: 12px;
+        }
+
+        .card ul {
+            color: var(--sage-stone);
+            margin: 12px 0;
+            padding-left: 24px;
+        }
+
+        .card li {
+            margin-bottom: 8px;
+        }
+
+        .card strong {
+            color: var(--moonlight-cloud);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding-top: 32px;
+            color: var(--sage-stone);
+            font-size: 0.875rem;
+        }
+
+        .footer a {
+            color: var(--amethyst-glow);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Decorative elements */
+        .glow-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .glow-orb-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--amethyst-glow);
+            top: -100px;
+            right: -100px;
+        }
+
+        .glow-orb-2 {
+            width: 250px;
+            height: 250px;
+            background: var(--virtue-ember);
+            bottom: -50px;
+            left: -100px;
+            opacity: 0.2;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: 1px solid rgba(168, 120, 200, 0.3);
+            color: var(--sage-stone);
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            transition: all 0.2s;
+        }
+
+        .lang-btn:hover, .lang-btn.active {
+            background: var(--amethyst-glow);
+            color: var(--twilight-shadow);
+            border-color: var(--amethyst-glow);
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 24px 16px;
+            }
+
+            .header h1 {
+                font-size: 1.75rem;
+            }
+
+            .card {
+                padding: 24px;
+            }
+        }
+
+        .update-date {
+            font-size: 0.85rem;
+            color: var(--sage-stone);
+            text-align: center;
+            margin-bottom: 24px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Decorative glows -->
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+
+    <div class="container">
+        <!-- Back to support -->
+        <a href="index.html" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+            </svg>
+            <span class="lang-pt">Voltar ao Suporte</span>
+            <span class="lang-en hidden">Back to Support</span>
+            <span class="lang-es hidden">Volver al Soporte</span>
+        </a>
+
+        <!-- Language Toggle -->
+        <div class="lang-toggle">
+            <button class="lang-btn active" onclick="setLanguage('pt')">Português</button>
+            <button class="lang-btn" onclick="setLanguage('en')">English</button>
+            <button class="lang-btn" onclick="setLanguage('es')">Español</button>
+        </div>
+
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <img src="app_icon.png" alt="Lumina Logo">
+            </div>
+            <h1>Lumina</h1>
+            <p class="lang-pt">Termos de Licença</p>
+            <p class="lang-en hidden">License Agreement</p>
+            <p class="lang-es hidden">Términos de Licencia</p>
+        </header>
+
+        <!-- Update Date -->
+        <p class="update-date">
+            <span class="lang-pt">Última atualização: 1º de Fevereiro de 2026</span>
+            <span class="lang-en hidden">Last updated: February 1, 2026</span>
+            <span class="lang-es hidden">Última actualización: 1º de Febrero de 2026</span>
+        </p>
+
+        <!-- PORTUGUESE VERSION -->
+        <div class="lang-pt">
+            <div class="card">
+                <h2>Termos de Licença do Aplicativo Lumina</h2>
+                <p><strong>LEIA ATENTAMENTE ANTES DE USAR O APLICATIVO</strong></p>
+            </div>
+
+            <div class="card">
+                <h2>1. Aceitação dos Termos</h2>
+                <p>Ao baixar, instalar ou usar o aplicativo Lumina ("Aplicativo"), você concorda com estes Termos de Licença ("Termos"). Se você não concordar com estes Termos, não utilize o Aplicativo.</p>
+            </div>
+
+            <div class="card">
+                <h2>2. Licença de Uso</h2>
+                <p>A Simbio Labs ("nós" ou "empresa") concede a você uma licença limitada, não exclusiva, intransferível e revogável para usar o Lumina em dispositivos de sua propriedade ou sob seu controle, exclusivamente para uso pessoal e não comercial.</p>
+            </div>
+
+            <div class="card">
+                <h2>3. Lumens e Compras no Aplicativo</h2>
+                <p>Lumens são a moeda virtual consumível do Aplicativo. Ao comprar pacotes de Lumens:</p>
+                <ul>
+                    <li><strong>A compra é final</strong> após a conclusão da transação com a Apple.</li>
+                    <li><strong>Lumens consumidos em leituras não são reembolsáveis.</strong> Uma vez usados para obter uma leitura ou recurso premium, os Lumens não podem ser devolvidos.</li>
+                    <li><strong>Lumens não utilizados</strong> permanecem em sua conta enquanto o Aplicativo estiver disponível e sua conta estiver ativa.</li>
+                    <li><strong>Reembolsos</strong> seguem a política da Apple App Store. Solicitações devem ser feitas diretamente pela Apple.</li>
+                    <li><strong>Sem valor monetário:</strong> Lumens não têm valor em dinheiro real e não podem ser trocados, vendidos ou transferidos.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>4. Uso Aceitável</h2>
+                <p>Você concorda em:</p>
+                <ul>
+                    <li>Usar o Aplicativo apenas para fins legais e de acordo com estes Termos.</li>
+                    <li>Não usar o Aplicativo de maneira que viole direitos de terceiros.</li>
+                    <li>Não realizar engenharia reversa, descompilar ou tentar extrair o código-fonte do Aplicativo.</li>
+                    <li>Não usar o Aplicativo para fins comerciais sem autorização prévia.</li>
+                </ul>
+                <p>Reservamo-nos o direito de suspender ou encerrar contas que violem estes termos.</p>
+            </div>
+
+            <div class="card">
+                <h2>5. Natureza do Serviço</h2>
+                <p>O Lumina oferece leituras de tarot com interpretações geradas por inteligência artificial para fins de <strong>entretenimento e reflexão pessoal</strong>.</p>
+                <p><strong>IMPORTANTE:</strong> O Aplicativo não substitui aconselhamento profissional, médico, psicológico, jurídico, financeiro ou espiritual. As leituras não devem ser usadas como base para decisões importantes sem consultar um profissional qualificado.</p>
+            </div>
+
+            <div class="card">
+                <h2>6. Propriedade Intelectual</h2>
+                <p>Todo o conteúdo do Aplicativo, incluindo mas não limitado a textos, imagens, design, código, marcas e logotipos, é de propriedade exclusiva da Simbio Labs ou de seus licenciadores e está protegido por leis de propriedade intelectual.</p>
+            </div>
+
+            <div class="card">
+                <h2>7. Privacidade</h2>
+                <p>O uso do Aplicativo também está sujeito à nossa <a href="privacy.html" style="color: var(--amethyst-glow);">Política de Privacidade</a>, que descreve como coletamos, usamos e protegemos suas informações.</p>
+            </div>
+
+            <div class="card">
+                <h2>8. Isenção de Garantias</h2>
+                <p>O Aplicativo é fornecido "como está" e "conforme disponível", sem garantias de qualquer tipo, expressas ou implícitas. Não garantimos que o Aplicativo será ininterrupto, livre de erros ou que atenderá suas expectativas.</p>
+            </div>
+
+            <div class="card">
+                <h2>9. Limitação de Responsabilidade</h2>
+                <p>Na máxima extensão permitida por lei, a Simbio Labs não se responsabiliza por quaisquer danos diretos, indiretos, incidentais, especiais, consequenciais ou punitivos decorrentes do uso ou da incapacidade de usar o Aplicativo, incluindo mas não limitado a perda de dados, lucros cessantes ou danos à reputação.</p>
+            </div>
+
+            <div class="card">
+                <h2>10. Encerramento</h2>
+                <p>Podemos suspender ou encerrar seu acesso ao Aplicativo a qualquer momento, sem aviso prévio, por violação destes Termos ou por qualquer outra razão, a nosso exclusivo critério.</p>
+            </div>
+
+            <div class="card">
+                <h2>11. Alterações nos Termos</h2>
+                <p>Podemos alterar estes Termos a qualquer momento. Alterações significativas serão notificadas através do Aplicativo ou por e-mail. O uso continuado do Aplicativo após alterações constitui aceitação dos novos termos.</p>
+            </div>
+
+            <div class="card">
+                <h2>12. Lei Aplicável</h2>
+                <p>Estes Termos são regidos pelas leis do Brasil. Quaisquer disputas serão resolvidas nos tribunais competentes do Brasil.</p>
+            </div>
+
+            <div class="card">
+                <h2>13. Contato</h2>
+                <p>Para dúvidas sobre estes Termos de Licença:</p>
+                <p><strong>E-mail:</strong> <a href="mailto:feedback@simbiolabs.com.br">feedback@simbiolabs.com.br</a></p>
+                <p><strong>Empresa:</strong> Simbio Labs</p>
+            </div>
+        </div>
+
+        <!-- ENGLISH VERSION -->
+        <div class="lang-en hidden">
+            <div class="card">
+                <h2>Lumina Application License Agreement</h2>
+                <p><strong>PLEASE READ CAREFULLY BEFORE USING THE APPLICATION</strong></p>
+            </div>
+
+            <div class="card">
+                <h2>1. Acceptance of Terms</h2>
+                <p>By downloading, installing, or using the Lumina application ("App"), you agree to these License Terms ("Terms"). If you do not agree to these Terms, do not use the App.</p>
+            </div>
+
+            <div class="card">
+                <h2>2. License Grant</h2>
+                <p>Simbio Labs ("we" or "company") grants you a limited, non-exclusive, non-transferable, revocable license to use Lumina on devices you own or control, solely for personal, non-commercial use.</p>
+            </div>
+
+            <div class="card">
+                <h2>3. Lumens and In-App Purchases</h2>
+                <p>Lumens are the App's consumable virtual currency. When purchasing Lumen packs:</p>
+                <ul>
+                    <li><strong>Purchases are final</strong> upon completion of the transaction with Apple.</li>
+                    <li><strong>Lumens consumed in readings are non-refundable.</strong> Once used to obtain a reading or premium feature, Lumens cannot be returned.</li>
+                    <li><strong>Unused Lumens</strong> remain in your account while the App is available and your account is active.</li>
+                    <li><strong>Refunds</strong> follow Apple App Store policy. Requests must be made directly through Apple.</li>
+                    <li><strong>No monetary value:</strong> Lumens have no real-world monetary value and cannot be exchanged, sold, or transferred.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>4. Acceptable Use</h2>
+                <p>You agree to:</p>
+                <ul>
+                    <li>Use the App only for lawful purposes and in accordance with these Terms.</li>
+                    <li>Not use the App in any manner that violates third-party rights.</li>
+                    <li>Not reverse engineer, decompile, or attempt to extract the App's source code.</li>
+                    <li>Not use the App for commercial purposes without prior authorization.</li>
+                </ul>
+                <p>We reserve the right to suspend or terminate accounts that violate these terms.</p>
+            </div>
+
+            <div class="card">
+                <h2>5. Nature of Service</h2>
+                <p>Lumina provides tarot readings with AI-generated interpretations for <strong>entertainment and personal reflection</strong> purposes.</p>
+                <p><strong>IMPORTANT:</strong> The App does not replace professional medical, psychological, legal, financial, or spiritual advice. Readings should not be used as the basis for important decisions without consulting a qualified professional.</p>
+            </div>
+
+            <div class="card">
+                <h2>6. Intellectual Property</h2>
+                <p>All App content, including but not limited to text, images, design, code, trademarks, and logos, is the exclusive property of Simbio Labs or its licensors and is protected by intellectual property laws.</p>
+            </div>
+
+            <div class="card">
+                <h2>7. Privacy</h2>
+                <p>Use of the App is also subject to our <a href="privacy.html" style="color: var(--amethyst-glow);">Privacy Policy</a>, which describes how we collect, use, and protect your information.</p>
+            </div>
+
+            <div class="card">
+                <h2>8. Disclaimer of Warranties</h2>
+                <p>The App is provided "as is" and "as available," without warranties of any kind, express or implied. We do not warrant that the App will be uninterrupted, error-free, or meet your expectations.</p>
+            </div>
+
+            <div class="card">
+                <h2>9. Limitation of Liability</h2>
+                <p>To the maximum extent permitted by law, Simbio Labs is not liable for any direct, indirect, incidental, special, consequential, or punitive damages arising from the use of or inability to use the App, including but not limited to loss of data, lost profits, or reputational damage.</p>
+            </div>
+
+            <div class="card">
+                <h2>10. Termination</h2>
+                <p>We may suspend or terminate your access to the App at any time, without prior notice, for violation of these Terms or for any other reason, at our sole discretion.</p>
+            </div>
+
+            <div class="card">
+                <h2>11. Changes to Terms</h2>
+                <p>We may change these Terms at any time. Significant changes will be notified through the App or by email. Continued use of the App after changes constitutes acceptance of the new terms.</p>
+            </div>
+
+            <div class="card">
+                <h2>12. Governing Law</h2>
+                <p>These Terms are governed by the laws of Brazil. Any disputes will be resolved in the competent courts of Brazil.</p>
+            </div>
+
+            <div class="card">
+                <h2>13. Contact</h2>
+                <p>For questions about these License Terms:</p>
+                <p><strong>Email:</strong> <a href="mailto:feedback@simbiolabs.com.br">feedback@simbiolabs.com.br</a></p>
+                <p><strong>Company:</strong> Simbio Labs</p>
+            </div>
+        </div>
+
+        <!-- SPANISH VERSION -->
+        <div class="lang-es hidden">
+            <div class="card">
+                <h2>Términos de Licencia de la Aplicación Lumina</h2>
+                <p><strong>LEA ATENTAMENTE ANTES DE USAR LA APLICACIÓN</strong></p>
+            </div>
+
+            <div class="card">
+                <h2>1. Aceptación de los Términos</h2>
+                <p>Al descargar, instalar o usar la aplicación Lumina ("Aplicación"), usted acepta estos Términos de Licencia ("Términos"). Si no está de acuerdo con estos Términos, no utilice la Aplicación.</p>
+            </div>
+
+            <div class="card">
+                <h2>2. Concesión de Licencia</h2>
+                <p>Simbio Labs ("nosotros" o "empresa") le otorga una licencia limitada, no exclusiva, intransferible y revocable para usar Lumina en dispositivos de su propiedad o bajo su control, exclusivamente para uso personal y no comercial.</p>
+            </div>
+
+            <div class="card">
+                <h2>3. Lumens y Compras en la Aplicación</h2>
+                <p>Lumens son la moneda virtual consumible de la Aplicación. Al comprar paquetes de Lumens:</p>
+                <ul>
+                    <li><strong>La compra es final</strong> tras completar la transacción con Apple.</li>
+                    <li><strong>Los Lumens consumidos en lecturas no son reembolsables.</strong> Una vez utilizados para obtener una lectura o función premium, los Lumens no pueden devolverse.</li>
+                    <li><strong>Lumens no utilizados</strong> permanecen en su cuenta mientras la Aplicación esté disponible y su cuenta esté activa.</li>
+                    <li><strong>Reembolsos</strong> siguen la política de Apple App Store. Las solicitudes deben realizarse directamente a través de Apple.</li>
+                    <li><strong>Sin valor monetario:</strong> Los Lumens no tienen valor monetario real y no pueden intercambiarse, venderse o transferirse.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>4. Uso Aceptable</h2>
+                <p>Usted acepta:</p>
+                <ul>
+                    <li>Usar la Aplicación solo para fines legales y de acuerdo con estos Términos.</li>
+                    <li>No usar la Aplicación de manera que viole derechos de terceros.</li>
+                    <li>No realizar ingeniería inversa, descompilar o intentar extraer el código fuente de la Aplicación.</li>
+                    <li>No usar la Aplicación para fines comerciales sin autorización previa.</li>
+                </ul>
+                <p>Nos reservamos el derecho de suspender o cancelar cuentas que violen estos términos.</p>
+            </div>
+
+            <div class="card">
+                <h2>5. Naturaleza del Servicio</h2>
+                <p>Lumina ofrece lecturas de tarot con interpretaciones generadas por inteligencia artificial para fines de <strong>entretenimiento y reflexión personal</strong>.</p>
+                <p><strong>IMPORTANTE:</strong> La Aplicación no reemplaza asesoramiento profesional médico, psicológico, legal, financiero o espiritual. Las lecturas no deben usarse como base para decisiones importantes sin consultar a un profesional calificado.</p>
+            </div>
+
+            <div class="card">
+                <h2>6. Propiedad Intelectual</h2>
+                <p>Todo el contenido de la Aplicación, incluyendo pero no limitado a textos, imágenes, diseño, código, marcas y logotipos, es propiedad exclusiva de Simbio Labs o de sus licenciantes y está protegido por leyes de propiedad intelectual.</p>
+            </div>
+
+            <div class="card">
+                <h2>7. Privacidad</h2>
+                <p>El uso de la Aplicación también está sujeto a nuestra <a href="privacy.html" style="color: var(--amethyst-glow);">Política de Privacidad</a>, que describe cómo recopilamos, usamos y protegemos su información.</p>
+            </div>
+
+            <div class="card">
+                <h2>8. Exención de Garantías</h2>
+                <p>La Aplicación se proporciona "tal cual" y "según disponibilidad", sin garantías de ningún tipo, expresas o implícitas. No garantizamos que la Aplicación sea ininterrumpida, libre de errores o que cumpla sus expectativas.</p>
+            </div>
+
+            <div class="card">
+                <h2>9. Limitación de Responsabilidad</h2>
+                <p>En la máxima medida permitida por la ley, Simbio Labs no es responsable de ningún daño directo, indirecto, incidental, especial, consecuente o punitivo que surja del uso o la incapacidad de usar la Aplicación, incluyendo pero no limitado a pérdida de datos, pérdida de ganancias o daño a la reputación.</p>
+            </div>
+
+            <div class="card">
+                <h2>10. Terminación</h2>
+                <p>Podemos suspender o terminar su acceso a la Aplicación en cualquier momento, sin previo aviso, por violación de estos Términos o por cualquier otra razón, a nuestra entera discreción.</p>
+            </div>
+
+            <div class="card">
+                <h2>11. Cambios en los Términos</h2>
+                <p>Podemos cambiar estos Términos en cualquier momento. Los cambios significativos se notificarán a través de la Aplicación o por correo electrónico. El uso continuado de la Aplicación después de los cambios constituye la aceptación de los nuevos términos.</p>
+            </div>
+
+            <div class="card">
+                <h2>12. Ley Aplicable</h2>
+                <p>Estos Términos se rigen por las leyes de Brasil. Cualquier disputa se resolverá en los tribunales competentes de Brasil.</p>
+            </div>
+
+            <div class="card">
+                <h2>13. Contacto</h2>
+                <p>Para preguntas sobre estos Términos de Licencia:</p>
+                <p><strong>Correo:</strong> <a href="mailto:feedback@simbiolabs.com.br">feedback@simbiolabs.com.br</a></p>
+                <p><strong>Empresa:</strong> Simbio Labs</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2026 Simbio Labs. <span class="lang-pt">Todos os direitos reservados.</span><span class="lang-en hidden">All rights reserved.</span><span class="lang-es hidden">Todos los derechos reservados.</span></p>
+            <p style="margin-top: 8px;">
+                <a href="index.html">
+                    <span class="lang-pt">Suporte</span>
+                    <span class="lang-en hidden">Support</span>
+                    <span class="lang-es hidden">Soporte</span>
+                </a>
+                •
+                <a href="privacy.html">
+                    <span class="lang-pt">Privacidade</span>
+                    <span class="lang-en hidden">Privacy</span>
+                    <span class="lang-es hidden">Privacidad</span>
+                </a>
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        function setLanguage(lang) {
+            // Update buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Hide all language content
+            document.querySelectorAll('.lang-pt, .lang-en, .lang-es').forEach(el => {
+                el.classList.add('hidden');
+            });
+
+            // Show selected language content
+            document.querySelectorAll('.lang-' + lang).forEach(el => {
+                el.classList.remove('hidden');
+            });
+
+            // Save preference
+            localStorage.setItem('lumina-lang', lang);
+        }
+
+        // Load saved language preference
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('lumina-lang');
+            if (savedLang && ['pt', 'en', 'es'].includes(savedLang)) {
+                // Find and click the correct button
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    if ((savedLang === 'pt' && btn.textContent.includes('Portugu')) ||
+                        (savedLang === 'en' && btn.textContent.includes('English')) ||
+                        (savedLang === 'es' && btn.textContent.includes('Español'))) {
+                        btn.click();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

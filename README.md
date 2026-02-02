@@ -27,12 +27,21 @@ Simple support page for the Lumina tarot reading app.
    - `https://YOUR_USERNAME.github.io/lumina-support`
    - Or configure a custom domain
 
+## Pages
+
+- **index.html** - Main support page with FAQ
+- **privacy.html** - Privacy Policy (LGPD/GDPR compliant)
+- **license.html** - End User License Agreement (EULA)
+
 ## Features
 
 - Dark mystical theme matching Lumina app
 - Multi-language support (Portuguese, English, Spanish)
 - Contact email link
-- FAQ section
+- Comprehensive FAQ section
+- Privacy Policy with data protection info
+- License Agreement covering IAP terms and conditions
+- Cross-linked navigation between pages
 - Responsive design for mobile
 - No dependencies, pure HTML/CSS/JS
 
