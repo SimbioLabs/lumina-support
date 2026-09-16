@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina - Política de Reembolso</title>
+    <meta name="description" content="Política de reembolso do Lumina — site (Paddle) e lojas de aplicativos">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Lumina Mystic Twilight Theme */
+            --twilight-shadow: #1A1525;
+            --mystic-elevation: #2A1F3D;
+            --amethyst-glow: #A878C8;
+            --virtue-ember: #E5C589;
+            --moonlight-cloud: #F5F0F8;
+            --sage-stone: #B8B8B0;
+            --nature-glow: #9FC89F;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, var(--twilight-shadow) 0%, #251A35 50%, var(--twilight-shadow) 100%);
+            color: var(--moonlight-cloud);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 24px;
+            box-shadow: 0 8px 32px rgba(168, 120, 200, 0.4), 0 0 0 3px rgba(168, 120, 200, 0.3);
+            overflow: hidden;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, var(--amethyst-glow), var(--virtue-ember));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            color: var(--sage-stone);
+            font-size: 1rem;
+        }
+
+        /* Back link */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--amethyst-glow);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 24px;
+            transition: opacity 0.2s;
+        }
+
+        .back-link:hover {
+            opacity: 0.8;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--mystic-elevation);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--amethyst-glow);
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 24px 0 12px 0;
+            color: var(--moonlight-cloud);
+        }
+
+        .card p {
+            color: var(--sage-stone);
+            margin-bottom: 12px;
+        }
+
+        .card ul {
+            color: var(--sage-stone);
+            margin: 12px 0;
+            padding-left: 24px;
+        }
+
+        .card li {
+            margin-bottom: 8px;
+        }
+
+        .card strong {
+            color: var(--moonlight-cloud);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding-top: 32px;
+            color: var(--sage-stone);
+            font-size: 0.875rem;
+        }
+
+        .footer a {
+            color: var(--amethyst-glow);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Decorative elements */
+        .glow-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .glow-orb-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--amethyst-glow);
+            top: -100px;
+            right: -100px;
+        }
+
+        .glow-orb-2 {
+            width: 250px;
+            height: 250px;
+            background: var(--virtue-ember);
+            bottom: -50px;
+            left: -100px;
+            opacity: 0.2;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: 1px solid rgba(168, 120, 200, 0.3);
+            color: var(--sage-stone);
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            transition: all 0.2s;
+        }
+
+        .lang-btn:hover, .lang-btn.active {
+            background: var(--amethyst-glow);
+            color: var(--twilight-shadow);
+            border-color: var(--amethyst-glow);
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 24px 16px;
+            }
+
+            .header h1 {
+                font-size: 1.75rem;
+            }
+
+            .card {
+                padding: 24px;
+            }
+        }
+
+        .update-date {
+            font-size: 0.85rem;
+            color: var(--sage-stone);
+            text-align: center;
+            margin-bottom: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+    <div class="container">
+        <a href="index.html" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+            </svg>
+            <span class="lang-pt">Voltar ao Suporte</span>
+            <span class="lang-en hidden">Back to Support</span>
+            <span class="lang-es hidden">Volver al Soporte</span>
+        </a>
+        <div class="lang-toggle">
+            <button class="lang-btn active" onclick="setLanguage('pt')">Português</button>
+            <button class="lang-btn" onclick="setLanguage('en')">English</button>
+            <button class="lang-btn" onclick="setLanguage('es')">Español</button>
+        </div>
+        <header class="header">
+            <div class="logo"><img src="app_icon.png" alt="Lumina Logo"></div>
+            <h1>Lumina</h1>
+            <p class="lang-pt">Política de Reembolso</p>
+            <p class="lang-en hidden">Refund Policy</p>
+            <p class="lang-es hidden">Política de Reembolsos</p>
+        </header>
+        <p class="update-date">
+            <span class="lang-pt">Última atualização: 15 de setembro de 2026</span>
+            <span class="lang-en hidden">Last updated: September 15, 2026</span>
+            <span class="lang-es hidden">Última actualización: 15 de septiembre de 2026</span>
+        </p>
+        
+        <div class="lang-pt">
+            <div class="card">
+                <h2>1. Garantia de 30 dias no site</h2>
+                <p>Compras de pacotes de Lumens feitas em <strong>luminatarot.vercel.app</strong> têm garantia de reembolso de <strong>30 dias</strong> a partir da data do pedido.</p>
+                <p>O processo de pedido no site é conduzido pelo nosso revendedor online <strong>Paddle.com</strong>. A Paddle.com é o Merchant of Record de todos os pedidos feitos no site. A Paddle fornece o atendimento ao cliente dessas compras e processa devoluções.</p>
+            </div>
+            <div class="card">
+                <h2>2. Como pedir reembolso (web)</h2>
+                <p>Escreva para <a href="mailto:feedback@simbiolabs.com.br">feedback@simbiolabs.com.br</a> ou use o <a href="https://www.paddle.com/support" style="color: var(--amethyst-glow);">suporte da Paddle</a>, com o e-mail da compra e o identificador da transação se você tiver.</p>
+                <p>Ao concluir a compra no site, você reconhece que está adquirindo conteúdo digital e que tem 30 dias após a conclusão do pedido para cancelar ou solicitar reembolso.</p>
+            </div>
+            <div class="card">
+                <h2>3. Lumens já usados</h2>
+                <p>Se ainda estiver dentro dos 30 dias, reembolsamos a compra web mesmo que parte dos Lumens já tenha sido usada. Depois do reembolso, o saldo correspondente pode ser ajustado na conta.</p>
+            </div>
+            <div class="card">
+                <h2>4. App Store e Google Play</h2>
+                <p>Compras no iPhone/iPad seguem a política de reembolso da <strong>Apple</strong>. Compras no Android seguem a do <strong>Google Play</strong>. Peça o reembolso pela loja em que você pagou.</p>
+            </div>
+            <div class="card">
+                <h2>5. Contato</h2>
+                <p><strong>Simbio Labs</strong> — <a href="mailto:feedback@simbiolabs.com.br">feedback@simbiolabs.com.br</a></p>
+            </div>
+        </div>
+        <div class="lang-en hidden">
+            <div class="card">
+                <h2>1. 30-day website guarantee</h2>
+                <p>Lumen pack purchases on <strong>luminatarot.vercel.app</strong> have a <strong>30-day</strong> money-back guarantee from the order date.</p>
+                <p>Our order process is conducted by our online reseller <strong>Paddle.com</strong>. Paddle.com is the Merchant of Record for all our orders. Paddle provides all customer service inquiries and handles returns.</p>
+            </div>
+            <div class="card">
+                <h2>2. How to request a refund (web)</h2>
+                <p>Email <a href="mailto:feedback@simbiolabs.com.br">feedback@simbiolabs.com.br</a> or contact <a href="https://www.paddle.com/support" style="color: var(--amethyst-glow);">Paddle support</a> with the purchase email and transaction id if you have it.</p>
+                <p>When you complete a website purchase, you acknowledge you are buying digital content and that you have 30 days after the order completion date to cancel or request a refund.</p>
+            </div>
+            <div class="card">
+                <h2>3. Lumens already used</h2>
+                <p>If you are still within 30 days, we refund the website purchase even if some Lumens have been spent. After the refund, the matching balance may be adjusted on the account.</p>
+            </div>
+            <div class="card">
+                <h2>4. App Store and Google Play</h2>
+                <p>iPhone/iPad purchases follow <strong>Apple</strong> refund policy. Android purchases follow <strong>Google Play</strong>. Request the refund from the store you paid.</p>
+            </div>
+            <div class="card">
+                <h2>5. Contact</h2>
+                <p><strong>Simbio Labs</strong> — <a href="mailto:feedback@simbiolabs.com.br">feedback@simbiolabs.com.br</a></p>
+            </div>
+        </div>
+        <div class="lang-es hidden">
+            <div class="card">
+                <h2>1. Garantía de 30 días en el sitio</h2>
+                <p>Las compras de paquetes de Lumens en <strong>luminatarot.vercel.app</strong> tienen garantía de reembolso de <strong>30 días</strong> desde la fecha del pedido.</p>
+                <p>El proceso de pedido en el sitio lo realiza nuestro revendedor en línea <strong>Paddle.com</strong>. Paddle.com es el Merchant of Record de todos los pedidos. Paddle atiende al cliente de esas compras y gestiona las devoluciones.</p>
+            </div>
+            <div class="card">
+                <h2>2. Cómo pedir el reembolso (web)</h2>
+                <p>Escriba a <a href="mailto:feedback@simbiolabs.com.br">feedback@simbiolabs.com.br</a> o use el <a href="https://www.paddle.com/support" style="color: var(--amethyst-glow);">soporte de Paddle</a>, con el correo de la compra y el id de transacción si lo tiene.</p>
+                <p>Al completar la compra en el sitio, reconoce que adquiere contenido digital y que tiene 30 días tras la fecha de finalización del pedido para cancelar o solicitar reembolso.</p>
+            </div>
+            <div class="card">
+                <h2>3. Lumens ya usados</h2>
+                <p>Si aún está dentro de los 30 días, reembolsamos la compra web aunque parte de los Lumens se haya usado. Tras el reembolso, el saldo correspondiente puede ajustarse en la cuenta.</p>
+            </div>
+            <div class="card">
+                <h2>4. App Store y Google Play</h2>
+                <p>Las compras en iPhone/iPad siguen la política de <strong>Apple</strong>. En Android, la de <strong>Google Play</strong>. Pida el reembolso en la tienda donde pagó.</p>
+            </div>
+            <div class="card">
+                <h2>5. Contacto</h2>
+                <p><strong>Simbio Labs</strong> — <a href="mailto:feedback@simbiolabs.com.br">feedback@simbiolabs.com.br</a></p>
+            </div>
+        </div>
+    
+        
+        <footer class="footer">
+            <p>&copy; 2026 Simbio Labs. <span class="lang-pt">Todos os direitos reservados.</span><span class="lang-en hidden">All rights reserved.</span><span class="lang-es hidden">Todos los derechos reservados.</span></p>
+            <p style="margin-top: 8px;">
+                <a href="index.html"><span class="lang-pt">Suporte</span><span class="lang-en hidden">Support</span><span class="lang-es hidden">Soporte</span></a>
+                •
+                <a href="terms.html"><span class="lang-pt">Termos</span><span class="lang-en hidden">Terms</span><span class="lang-es hidden">Términos</span></a>
+                •
+                <a href="privacy.html"><span class="lang-pt">Privacidade</span><span class="lang-en hidden">Privacy</span><span class="lang-es hidden">Privacidad</span></a>
+                •
+                <a href="refund.html"><span class="lang-pt">Reembolsos</span><span class="lang-en hidden">Refunds</span><span class="lang-es hidden">Reembolsos</span></a>
+            </p>
+        </footer>
+
+    </div>
+    
+    <script>
+        function setLanguage(lang) {
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            document.querySelectorAll('.lang-pt, .lang-en, .lang-es').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.lang-' + lang).forEach(el => el.classList.remove('hidden'));
+            localStorage.setItem('lumina-lang', lang);
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('lumina-lang');
+            if (savedLang && ['pt', 'en', 'es'].includes(savedLang)) {
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    if ((savedLang === 'pt' && btn.textContent.includes('Portugu')) ||
+                        (savedLang === 'en' && btn.textContent.includes('English')) ||
+                        (savedLang === 'es' && btn.textContent.includes('Español'))) {
+                        btn.click();
+                    }
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>

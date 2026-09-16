@@ -30,8 +30,10 @@ Simple support page for the Lumina tarot reading app.
 ## Pages
 
 - **index.html** - Main support page with FAQ
-- **privacy.html** - Privacy Policy (LGPD/GDPR compliant)
-- **license.html** - End User License Agreement (EULA)
+- **terms.html** - Terms of Service (website + app, Paddle as Merchant of Record)
+- **privacy.html** - Privacy Policy (LGPD/GDPR)
+- **refund.html** - 30-day refund policy for web (Paddle) and store purchases
+- **license.html** - End User License Agreement (app stores)
 
 ## Features
 

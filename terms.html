@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina - Termos de Serviço</title>
+    <meta name="description" content="Termos de Serviço do Lumina — site e aplicativo">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Lumina Mystic Twilight Theme */
+            --twilight-shadow: #1A1525;
+            --mystic-elevation: #2A1F3D;
+            --amethyst-glow: #A878C8;
+            --virtue-ember: #E5C589;
+            --moonlight-cloud: #F5F0F8;
+            --sage-stone: #B8B8B0;
+            --nature-glow: #9FC89F;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, var(--twilight-shadow) 0%, #251A35 50%, var(--twilight-shadow) 100%);
+            color: var(--moonlight-cloud);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 24px;
+            box-shadow: 0 8px 32px rgba(168, 120, 200, 0.4), 0 0 0 3px rgba(168, 120, 200, 0.3);
+            overflow: hidden;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, var(--amethyst-glow), var(--virtue-ember));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            color: var(--sage-stone);
+            font-size: 1rem;
+        }
+
+        /* Back link */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--amethyst-glow);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 24px;
+            transition: opacity 0.2s;
+        }
+
+        .back-link:hover {
+            opacity: 0.8;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--mystic-elevation);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--amethyst-glow);
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 24px 0 12px 0;
+            color: var(--moonlight-cloud);
+        }
+
+        .card p {
+            color: var(--sage-stone);
+            margin-bottom: 12px;
+        }
+
+        .card ul {
+            color: var(--sage-stone);
+            margin: 12px 0;
+            padding-left: 24px;
+        }
+
+        .card li {
+            margin-bottom: 8px;
+        }
+
+        .card strong {
+            color: var(--moonlight-cloud);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding-top: 32px;
+            color: var(--sage-stone);
+            font-size: 0.875rem;
+        }
+
+        .footer a {
+            color: var(--amethyst-glow);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Decorative elements */
+        .glow-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .glow-orb-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--amethyst-glow);
+            top: -100px;
+            right: -100px;
+        }
+
+        .glow-orb-2 {
+            width: 250px;
+            height: 250px;
+            background: var(--virtue-ember);
+            bottom: -50px;
+            left: -100px;
+            opacity: 0.2;
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: 1px solid rgba(168, 120, 200, 0.3);
+            color: var(--sage-stone);
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            transition: all 0.2s;
+        }
+
+        .lang-btn:hover, .lang-btn.active {
+            background: var(--amethyst-glow);
+            color: var(--twilight-shadow);
+            border-color: var(--amethyst-glow);
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 24px 16px;
+            }
+
+            .header h1 {
+                font-size: 1.75rem;
+            }
+
+            .card {
+                padding: 24px;
+            }
+        }
+
+        .update-date {
+            font-size: 0.85rem;
+            color: var(--sage-stone);
+            text-align: center;
+            margin-bottom: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+    <div class="container">
+        <a href="index.html" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+            </svg>
+            <span class="lang-pt">Voltar ao Suporte</span>
+            <span class="lang-en hidden">Back to Support</span>
+            <span class="lang-es hidden">Volver al Soporte</span>
+        </a>
+        <div class="lang-toggle">
+            <button class="lang-btn active" onclick="setLanguage('pt')">Português</button>
+            <button class="lang-btn" onclick="setLanguage('en')">English</button>
+            <button class="lang-btn" onclick="setLanguage('es')">Español</button>
+        </div>
+        <header class="header">
+            <div class="logo"><img src="app_icon.png" alt="Lumina Logo"></div>
+            <h1>Lumina</h1>
+            <p class="lang-pt">Termos de Serviço</p>
+            <p class="lang-en hidden">Terms of Service</p>
+            <p class="lang-es hidden">Términos de Servicio</p>
+        </header>
+        <p class="update-date">
+            <span class="lang-pt">Última atualização: 15 de setembro de 2026</span>
+            <span class="lang-en hidden">Last updated: September 15, 2026</span>
+            <span class="lang-es hidden">Última actualización: 15 de septiembre de 2026</span>
+        </p>
+        
+        <div class="lang-pt">
+            <div class="card">
+                <h2>1. Quem somos</h2>
+                <p>Estes Termos de Serviço regem o uso do site <strong>luminatarot.vercel.app</strong> e do aplicativo Lumina, operados pela <strong>Simbio Labs</strong>.</p>
+                <p>Ao criar uma conta, comprar Lumens ou usar o serviço, você concorda com estes Termos, com a <a href="privacy.html" style="color: var(--amethyst-glow);">Política de Privacidade</a> e com a <a href="refund.html" style="color: var(--amethyst-glow);">Política de Reembolso</a>.</p>
+            </div>
+            <div class="card">
+                <h2>2. Compras no site (Paddle)</h2>
+                <p>O processo de pedido no site é conduzido pelo nosso revendedor online <strong>Paddle.com</strong>. A Paddle.com é o Merchant of Record de todos os pedidos feitos no site. A Paddle fornece o atendimento ao cliente dessas compras e processa devoluções.</p>
+                <p>Pacotes de Lumens comprados no site são créditos digitais consumíveis para leituras e recursos do Lumina. Lumens não têm valor em dinheiro e não podem ser vendidos nem transferidos entre contas.</p>
+            </div>
+            <div class="card">
+                <h2>3. Compras nos aplicativos</h2>
+                <p>Compras feitas no iPhone ou iPad são processadas pela Apple. Compras no Android são processadas pelo Google Play. Essas lojas são o merchant of record daquela compra. Reembolsos dessas lojas seguem a política da Apple ou do Google. Veja também o <a href="license.html" style="color: var(--amethyst-glow);">contrato de licença do aplicativo</a>.</p>
+            </div>
+            <div class="card">
+                <h2>4. Natureza do serviço</h2>
+                <p>O Lumina oferece leituras de tarot com interpretações geradas por inteligência artificial para <strong>entretenimento e reflexão pessoal</strong>. Não substitui aconselhamento médico, psicológico, jurídico, financeiro ou espiritual.</p>
+            </div>
+            <div class="card">
+                <h2>5. Conta e uso aceitável</h2>
+                <p>Você deve ter pelo menos 13 anos. Use o serviço apenas para fins legais, pessoais e não comerciais. Não tente invadir, copiar ou revender o serviço.</p>
+            </div>
+            <div class="card">
+                <h2>6. Contato</h2>
+                <p><strong>Simbio Labs</strong> — <a href="mailto:feedback@simbiolabs.com.br">feedback@simbiolabs.com.br</a></p>
+                <p>Compras web: também <a href="https://www.paddle.com/support" style="color: var(--amethyst-glow);">suporte da Paddle</a>.</p>
+            </div>
+        </div>
+        <div class="lang-en hidden">
+            <div class="card">
+                <h2>1. Who we are</h2>
+                <p>These Terms of Service govern the website <strong>luminatarot.vercel.app</strong> and the Lumina app, operated by <strong>Simbio Labs</strong>.</p>
+                <p>By creating an account, buying Lumens, or using the service, you agree to these Terms, our <a href="privacy.html" style="color: var(--amethyst-glow);">Privacy Policy</a>, and our <a href="refund.html" style="color: var(--amethyst-glow);">Refund Policy</a>.</p>
+            </div>
+            <div class="card">
+                <h2>2. Website purchases (Paddle)</h2>
+                <p>Our order process is conducted by our online reseller <strong>Paddle.com</strong>. Paddle.com is the Merchant of Record for all our orders. Paddle provides all customer service inquiries and handles returns.</p>
+                <p>Lumen packs bought on the website are consumable digital credits for Lumina readings and features. Lumens have no cash value and cannot be sold or transferred between accounts.</p>
+            </div>
+            <div class="card">
+                <h2>3. App store purchases</h2>
+                <p>Purchases on iPhone or iPad are processed by Apple. Purchases on Android are processed by Google Play. Those stores are the merchant of record for that purchase. Refunds follow Apple or Google policy. See also the <a href="license.html" style="color: var(--amethyst-glow);">app license agreement</a>.</p>
+            </div>
+            <div class="card">
+                <h2>4. Nature of the service</h2>
+                <p>Lumina provides tarot readings with AI-generated interpretations for <strong>entertainment and personal reflection</strong>. It does not replace medical, psychological, legal, financial, or spiritual advice.</p>
+            </div>
+            <div class="card">
+                <h2>5. Account and acceptable use</h2>
+                <p>You must be at least 13 years old. Use the service only for lawful, personal, non-commercial purposes. Do not attempt to break, copy, or resell the service.</p>
+            </div>
+            <div class="card">
+                <h2>6. Contact</h2>
+                <p><strong>Simbio Labs</strong> — <a href="mailto:feedback@simbiolabs.com.br">feedback@simbiolabs.com.br</a></p>
+                <p>Website purchases: also <a href="https://www.paddle.com/support" style="color: var(--amethyst-glow);">Paddle support</a>.</p>
+            </div>
+        </div>
+        <div class="lang-es hidden">
+            <div class="card">
+                <h2>1. Quiénes somos</h2>
+                <p>Estos Términos de Servicio rigen el sitio <strong>luminatarot.vercel.app</strong> y la aplicación Lumina, operados por <strong>Simbio Labs</strong>.</p>
+                <p>Al crear una cuenta, comprar Lumens o usar el servicio, acepta estos Términos, la <a href="privacy.html" style="color: var(--amethyst-glow);">Política de Privacidad</a> y la <a href="refund.html" style="color: var(--amethyst-glow);">Política de Reembolsos</a>.</p>
+            </div>
+            <div class="card">
+                <h2>2. Compras en el sitio (Paddle)</h2>
+                <p>El proceso de pedido en el sitio lo realiza nuestro revendedor en línea <strong>Paddle.com</strong>. Paddle.com es el Merchant of Record de todos los pedidos hechos en el sitio. Paddle atiende al cliente de esas compras y gestiona las devoluciones.</p>
+                <p>Los paquetes de Lumens comprados en el sitio son créditos digitales consumibles. Los Lumens no tienen valor en efectivo y no se pueden vender ni transferir entre cuentas.</p>
+            </div>
+            <div class="card">
+                <h2>3. Compras en las tiendas</h2>
+                <p>Las compras en iPhone o iPad las procesa Apple. En Android, Google Play. Esas tiendas son el merchant of record de esa compra. Los reembolsos siguen la política de Apple o Google. Vea también el <a href="license.html" style="color: var(--amethyst-glow);">acuerdo de licencia</a>.</p>
+            </div>
+            <div class="card">
+                <h2>4. Naturaleza del servicio</h2>
+                <p>Lumina ofrece lecturas de tarot con interpretaciones de inteligencia artificial para <strong>entretenimiento y reflexión personal</strong>. No sustituye consejo médico, psicológico, jurídico, financiero o espiritual.</p>
+            </div>
+            <div class="card">
+                <h2>5. Cuenta y uso aceptable</h2>
+                <p>Debe tener al menos 13 años. Use el servicio solo con fines legales, personales y no comerciales.</p>
+            </div>
+            <div class="card">
+                <h2>6. Contacto</h2>
+                <p><strong>Simbio Labs</strong> — <a href="mailto:feedback@simbiolabs.com.br">feedback@simbiolabs.com.br</a></p>
+                <p>Compras web: también <a href="https://www.paddle.com/support" style="color: var(--amethyst-glow);">soporte de Paddle</a>.</p>
+            </div>
+        </div>
+    
+        
+        <footer class="footer">
+            <p>&copy; 2026 Simbio Labs. <span class="lang-pt">Todos os direitos reservados.</span><span class="lang-en hidden">All rights reserved.</span><span class="lang-es hidden">Todos los derechos reservados.</span></p>
+            <p style="margin-top: 8px;">
+                <a href="index.html"><span class="lang-pt">Suporte</span><span class="lang-en hidden">Support</span><span class="lang-es hidden">Soporte</span></a>
+                •
+                <a href="terms.html"><span class="lang-pt">Termos</span><span class="lang-en hidden">Terms</span><span class="lang-es hidden">Términos</span></a>
+                •
+                <a href="privacy.html"><span class="lang-pt">Privacidade</span><span class="lang-en hidden">Privacy</span><span class="lang-es hidden">Privacidad</span></a>
+                •
+                <a href="refund.html"><span class="lang-pt">Reembolsos</span><span class="lang-en hidden">Refunds</span><span class="lang-es hidden">Reembolsos</span></a>
+            </p>
+        </footer>
+
+    </div>
+    
+    <script>
+        function setLanguage(lang) {
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            document.querySelectorAll('.lang-pt, .lang-en, .lang-es').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.lang-' + lang).forEach(el => el.classList.remove('hidden'));
+            localStorage.setItem('lumina-lang', lang);
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('lumina-lang');
+            if (savedLang && ['pt', 'en', 'es'].includes(savedLang)) {
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    if ((savedLang === 'pt' && btn.textContent.includes('Portugu')) ||
+                        (savedLang === 'en' && btn.textContent.includes('English')) ||
+                        (savedLang === 'es' && btn.textContent.includes('Español'))) {
+                        btn.click();
+                    }
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>
