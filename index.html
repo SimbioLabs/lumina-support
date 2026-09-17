@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lumina - Suporte</title>
+    <link rel="icon" href="app_icon.png" type="image/png">
     <meta name="description" content="Página de suporte do aplicativo Lumina - Leituras de Tarot com IA">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,10 +50,16 @@
         .logo {
             width: 100px;
             height: 100px;
-            border-radius: 50%;
+            border-radius: 22.37%;
             margin: 0 auto 24px;
-            box-shadow: 0 8px 32px rgba(168, 120, 200, 0.4), 0 0 0 3px rgba(168, 120, 200, 0.3);
+            box-shadow: 0 8px 32px rgba(168, 120, 200, 0.4);
             overflow: hidden;
+        }
+
+        @supports (corner-shape: squircle) {
+            .logo {
+                corner-shape: squircle;
+            }
         }
 
         .logo img {

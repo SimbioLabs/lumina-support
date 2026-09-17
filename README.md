@@ -54,6 +54,8 @@ Edit `index.html` to:
 - Add/modify FAQ items
 - Change branding colors (CSS variables at top)
 
+The logo is the shared Lumina mark (`app_icon.png`), clipped to a squircle in CSS. To change the art, update `lumina-web/public/brand/icon-master.png` and run `npm run icons` there. Do not circle-crop the PNG.
+
 ---
 
 Built for Simbio Labs

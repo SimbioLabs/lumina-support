@@ -1,0 +1,14 @@
+---
+description: Support logo uses the same inset Lumina squircle as the apps
+alwaysApply: true
+---
+
+# Brand icon
+
+Same mark as the web and native apps: **opaque square**, art inset ~10% so a squircle mask does not clip the moon/star, clipped in CSS.
+
+- File: `app_icon.png` (Twilight variant — this page is always dark).
+- Shape: `border-radius: 22.37%` and `corner-shape: squircle` on `.logo`. **Not** `border-radius: 50%`.
+- Do not circle-crop, pre-round, or scale the art to the PNG edges.
+
+To change the illustration, replace `lumina-web/public/brand/icon-master.png` and run `npm run icons` there. Keep the CSS clip; only the art changes.
