@@ -1,5 +1,6 @@
 # Check name on PRs. Calls the company scanner in simbio-context.
 name: Scan copyrighted content in PR
+run-name: Scan copyrighted content in PR — fail check on hit
 
 on:
   pull_request:
