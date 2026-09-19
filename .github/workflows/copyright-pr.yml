@@ -1,4 +1,5 @@
-name: Copyright PR
+# Check name on PRs. Calls the company scanner in simbio-context.
+name: Scan copyrighted content in PR
 
 on:
   pull_request:
@@ -13,7 +14,8 @@ permissions:
   pull-requests: write
 
 jobs:
-  scan:
+  review:
+    name: Review media
     uses: SimbioLabs/simbio-context/.github/workflows/copyright-scan.yml@main
     with:
       mode: pr
