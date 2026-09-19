@@ -1,6 +1,6 @@
 # Lumina Support Page
 
-Simple support page for the Lumina tarot reading app.
+Simple support page for Lumina, an online collection game with a tarot / mystic theme.
 
 ## Deploying to GitHub Pages
 

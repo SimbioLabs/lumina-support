@@ -1,0 +1,14 @@
+---
+description: Fail-closed pointer to live Simbio Labs canon
+alwaysApply: true
+---
+
+# Simbio Labs
+
+Studio: Simbio Labs. Vertical: **games**.
+
+Canon: workspace folder `simbio-context` (HEAD). Read `AGENTS.md`, `verticals/games/`, and `legal/claims.md` before legal or marketing copy.
+
+If `simbio-context` is not in this workspace, **stop** and ask to add it. Do not invent policy.
+
+Product overlay (support / legal pages) stays here.
