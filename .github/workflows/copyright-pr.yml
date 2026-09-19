@@ -1,0 +1,23 @@
+name: Copyright PR
+
+on:
+  pull_request:
+
+concurrency:
+  group: copyright-pr-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
+jobs:
+  scan:
+    uses: SimbioLabs/simbio-context/.github/workflows/copyright-scan.yml@main
+    with:
+      mode: pr
+      fail_on_hit: true
+      open_issues: false
+    secrets:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
