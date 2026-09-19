@@ -1,13 +1,13 @@
 ---
-description: Support logo is the generated Twilight app icon; art comes from lumina-web/logo.png
+description: Support uses the generated circular cream button from lumina-web
 alwaysApply: true
 ---
 
 # Brand icon
 
-This page uses the **app icon** (opaque square, Twilight fill), clipped to a squircle in CSS — not the transparent nav logo.
+This page uses the **circular button** (`app_icon.png`) generated from `lumina-web/public/brand/logo.png` — cream face, raised ember rim, transparent outside.
 
-- File: `app_icon.png` (always dark here).
-- Shape: `border-radius: 22.37%` and `corner-shape: squircle` on `.logo`. **Not** `border-radius: 50%`.
+- File: `app_icon.png` (same button as the website nav).
+- Do not clip it to a squircle. The PNG is already circular.
 
-To change the illustration, replace `lumina-web/public/brand/logo.png` (transparent) and run `npm run icons` there. That regenerates this file with the 10% safe-zone inset. Keep the CSS clip.
+To change the illustration, replace `lumina-web/public/brand/logo.png` (cream square) and run `npm run icons` there.

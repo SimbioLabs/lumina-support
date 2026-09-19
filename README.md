@@ -54,7 +54,7 @@ Edit `index.html` to:
 - Add/modify FAQ items
 - Change branding colors (CSS variables at top)
 
-The header mark is the generated app icon (`app_icon.png`), clipped to a squircle in CSS. To change the art, replace `lumina-web/public/brand/logo.png` and run `npm run icons` there.
+The header mark is the generated circular button (`app_icon.png`). To change the art, replace `lumina-web/public/brand/logo.png` (cream square) and run `npm run icons` there.
 
 ---
 
