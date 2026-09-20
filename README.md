@@ -1,61 +1,77 @@
-# Lumina Support Page
+# Lumina Support Site
 
-Simple support page for Lumina, an online collection game with a tarot / mystic theme.
+Static support, privacy, and license pages for Lumina, an online collection game with a tarot / mystic theme. No build step and no dependencies: HTML files, one logo, and inline CSS/JS.
 
-## Deploying to GitHub Pages
+Repository: https://github.com/SimbioLabs/lumina-support
 
-1. Create a new repository on GitHub (e.g., `lumina-support`)
+GitHub Pages serves `main` at the repository root:
 
-2. Push this code:
-   ```bash
-   cd ~/SimbioLabs/lumina-support
-   git init
-   git add .
-   git commit -m "Initial commit: Lumina support page"
-   git branch -M main
-   git remote add origin https://github.com/YOUR_USERNAME/lumina-support.git
-   git push -u origin main
-   ```
-
-3. Enable GitHub Pages:
-   - Go to repository Settings → Pages
-   - Source: Deploy from a branch
-   - Branch: `main` / `root`
-   - Click Save
-
-4. Your page will be available at:
-   - `https://YOUR_USERNAME.github.io/lumina-support`
-   - Or configure a custom domain
+```text
+https://simbiolabs.github.io/lumina-support/
+```
 
 ## Pages
 
-- **index.html** - Main support page with FAQ
-- **terms.html** - Terms of Service (website + app, Paddle as Merchant of Record)
-- **privacy.html** - Privacy Policy (LGPD/GDPR)
-- **refund.html** - 30-day refund policy for web (Paddle) and store purchases
-- **license.html** - End User License Agreement (app stores)
+| File | Purpose |
+|------|---------|
+| `index.html` | FAQ, contact, about, language toggle |
+| `terms.html` | Terms of Service (website + app, Paddle as Merchant of Record) |
+| `privacy.html` | Privacy Policy (PT / EN / ES, LGPD/GDPR) |
+| `refund.html` | 30-day refund policy for web (Paddle) and store purchases |
+| `license.html` | End User License Agreement (app stores) |
+| `app_icon.png` | Circular app logo used in the header |
 
-## Features
+Each page links the others in the footer. Contact is
+`feedback@simbiolabs.com.br`.
 
-- Dark mystical theme matching Lumina app
-- Multi-language support (Portuguese, English, Spanish)
-- Contact email link
-- Comprehensive FAQ section
-- Privacy Policy with data protection info
-- License Agreement covering IAP terms and conditions
-- Cross-linked navigation between pages
-- Responsive design for mobile
-- No dependencies, pure HTML/CSS/JS
+## Languages
 
-## Customization
+All three pages ship Portuguese, English, and Spanish in the same file.
 
-Edit `index.html` to:
-- Update contact email
-- Add/modify FAQ items
-- Change branding colors (CSS variables at top)
+- Visible copy is wrapped in `.lang-pt`, `.lang-en`, or `.lang-es`.
+- Default render is Portuguese (`<html lang="pt-BR">`, EN/ES start `.hidden`).
+- `setLanguage(lang)` toggles `.hidden`, marks the active button, and stores
+  `lumina-lang` in `localStorage`.
+- On load, a saved `pt` / `en` / `es` value is reapplied by clicking the
+  matching language button.
+
+There is no framework i18n. Adding a sentence means adding three sibling
+`<span>` / `<p>` / `<div>` nodes.
 
 The header mark is the generated circular button (`app_icon.png`). To change the art, replace `lumina-web/public/brand/logo.png` (cream square) and run `npm run icons` there.
 
----
+## Editing the FAQ
 
-Built for Simbio Labs
+FAQ items live in `index.html` as repeated `.faq-item` blocks, one block per
+language column (the PT, EN, and ES FAQ lists are separate, not one item with
+three spans).
+
+When you add a question:
+
+1. Add the item to the Portuguese list, the English list, and the Spanish list.
+2. Keep the three lists in the same order.
+3. Do not introduce a new language without also updating `privacy.html`,
+   `license.html`, the toggle buttons, and the `localStorage` allow-list
+   `['pt', 'en', 'es']`.
+
+Theme colors are CSS variables at the top of each file (`--twilight-shadow`,
+`--amethyst-glow`, `--virtue-ember`, …). Change them in all three pages if you
+retint the site.
+
+## Local preview
+
+```bash
+cd lumina-support
+python3 -m http.server 8080
+# open http://127.0.0.1:8080/
+```
+
+Confirm language toggle, footer links between the three pages, and the mailto
+button. There is no automated test suite.
+
+## Deploy
+
+Push to `main`. GitHub Pages serves the repository root.
+
+Do not add a bundler, environment file, or backend call to these pages. They
+are public legal/support content and must stay static.
