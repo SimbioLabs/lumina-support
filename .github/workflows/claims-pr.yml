@@ -1,0 +1,52 @@
+# Public repo cannot `uses:` a private reusable workflow. Checkout the
+# lint from simbio-context instead. Do not copy the action into this repo.
+name: Lint product claims in PR
+run-name: Lint product claims in PR — fail check on hit
+
+on:
+  pull_request:
+
+concurrency:
+  group: claims-pr-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  review:
+    name: Review claims
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Confirm context read token
+        env:
+          HAS_TOKEN: ${{ secrets.SIMBIO_CONTEXT_READ_TOKEN != '' }}
+        run: |
+          if [ "$HAS_TOKEN" != "true" ]; then
+            echo "::error::This repo is public, so GitHub cannot resolve SimbioLabs/simbio-context reusable workflows. Add SIMBIO_CONTEXT_READ_TOKEN (fine-grained PAT, contents:read on SimbioLabs/simbio-context)."
+            exit 1
+          fi
+
+      - uses: actions/checkout@v5
+        with:
+          repository: SimbioLabs/simbio-context
+          ref: main
+          token: ${{ secrets.SIMBIO_CONTEXT_READ_TOKEN }}
+          path: _simbio-context
+          persist-credentials: false
+          sparse-checkout: .github/actions/claims-lint
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+
+      - name: Lint product claims
+        uses: ./_simbio-context/.github/actions/claims-lint
+        with:
+          base_sha: ${{ github.event.pull_request.base.sha }}
+          head_sha: ${{ github.event.pull_request.head.sha }}
