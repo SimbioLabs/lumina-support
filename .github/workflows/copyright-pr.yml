@@ -1,4 +1,5 @@
-# Check name on PRs. Calls the company scanner in simbio-context.
+# Public repo cannot `uses:` a private reusable workflow. Checkout the
+# scanner from simbio-context instead. Do not copy the action into this repo.
 name: Scan copyrighted content in PR
 run-name: Scan copyrighted content in PR — fail check on hit
 
@@ -17,10 +18,43 @@ permissions:
 jobs:
   review:
     name: Review media
-    uses: SimbioLabs/simbio-context/.github/workflows/copyright-scan.yml@main
-    with:
-      mode: pr
-      fail_on_hit: true
-      open_issues: false
-    secrets:
-      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Confirm context read token
+        env:
+          HAS_TOKEN: ${{ secrets.SIMBIO_CONTEXT_READ_TOKEN != '' }}
+        run: |
+          if [ "$HAS_TOKEN" != "true" ]; then
+            echo "::error::This repo is public, so GitHub cannot resolve SimbioLabs/simbio-context reusable workflows. Add SIMBIO_CONTEXT_READ_TOKEN (fine-grained PAT, contents:read on SimbioLabs/simbio-context)."
+            exit 1
+          fi
+
+      - uses: actions/checkout@v5
+        with:
+          repository: SimbioLabs/simbio-context
+          ref: main
+          token: ${{ secrets.SIMBIO_CONTEXT_READ_TOKEN }}
+          path: _simbio-context
+          persist-credentials: false
+          sparse-checkout: .github/actions/copyright-scan
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+
+      - name: Scan copyrighted content
+        uses: ./_simbio-context/.github/actions/copyright-scan
+        with:
+          mode: pr
+          fail_on_hit: "true"
+          open_issues: "false"
+          base_sha: ${{ github.event.pull_request.base.sha }}
+          head_sha: ${{ github.event.pull_request.head.sha }}
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
