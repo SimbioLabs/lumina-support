@@ -71,7 +71,14 @@ button. There is no automated test suite.
 
 ## Deploy
 
-Push to `main`. GitHub Pages serves the repository root.
+Push to `main`. The **Deploy GitHub Pages** workflow (`.github/workflows/pages.yml`)
+uploads the repository root and publishes to Pages.
+
+**One-time (repo admin):** In **Settings → Pages → Build and deployment**,
+set **Source** to **GitHub Actions** so the legacy `pages-build-deployment`
+job stops running (that managed workflow still uses Node 20 actions and logs
+deprecation noise). Until the source is switched, legacy branch deploy may still
+run alongside this workflow.
 
 Do not add a bundler, environment file, or backend call to these pages. They
 are public legal/support content and must stay static.
