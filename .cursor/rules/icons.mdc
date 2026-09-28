@@ -1,13 +1,13 @@
 ---
-description: Support uses the generated circular cream button from lumina-web
+description: Support uses the circular brand brooch icon
 alwaysApply: true
 ---
 
 # Brand icon
 
-This page uses the **circular button** (`app_icon.png`) generated from `lumina-web/public/brand/logo.png` — cream face, raised ember rim, transparent outside.
+This page uses the **circular brooch** (`app_icon.png`) — dark-purple coin, skeletal hand holding one purple/gold card back, transparent outside.
 
-- File: `app_icon.png` (same button as the website nav).
-- Do not clip it to a squircle. The PNG is already circular.
+- File: `app_icon.png` (512×512 RGBA PNG, same brooch as the lumina-web brand icon).
+- Do not clip it to a squircle. The PNG is already circular (~80% coin, transparent outside).
 
-To change the illustration, replace `lumina-web/public/brand/logo.png` (cream square) and run `npm run icons` there.
+To change the illustration, replace `app_icon.png` with the same shipped brand brooch. Do not invent a second design.
