@@ -19,7 +19,7 @@ https://simbiolabs.github.io/lumina-support/
 | `privacy.html` | Privacy Policy (PT / EN / ES, LGPD/GDPR) |
 | `refund.html` | 30-day refund policy for web (Paddle) and store purchases |
 | `license.html` | End User License Agreement (app stores) |
-| `app_icon.png` | Circular app logo used in the header |
+| `app_icon.png` | Circular brand brooch (512×512 RGBA) used as favicon and header mark |
 
 Each page links the others in the footer. Contact is
 `feedback@simbiolabs.com.br`.
@@ -38,7 +38,7 @@ All three pages ship Portuguese, English, and Spanish in the same file.
 There is no framework i18n. Adding a sentence means adding three sibling
 `<span>` / `<p>` / `<div>` nodes.
 
-The header mark is the generated circular button (`app_icon.png`). To change the art, replace `lumina-web/public/brand/logo.png` (cream square) and run `npm run icons` there.
+The header mark is the circular brand brooch (`app_icon.png`): dark-purple coin, skeletal hand holding one purple/gold card back, transparent outside. Replace that file with the same shipped brooch; do not invent a second design or clip the PNG to a squircle.
 
 ## Editing the FAQ
 
