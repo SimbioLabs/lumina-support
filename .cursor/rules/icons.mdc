@@ -8,6 +8,6 @@ alwaysApply: true
 This page uses the **circular brooch** (`app_icon.png`) — dark-purple coin, skeletal hand holding one purple/gold card back, transparent outside.
 
 - File: `app_icon.png` (512×512 RGBA PNG, same brooch as the lumina-web brand icon).
-- Do not clip it to a squircle. The PNG is already circular (~80% coin, transparent outside).
+- Do not clip it to a squircle. The PNG is already circular (full coin, transparent outside the rim).
 
 To change the illustration, replace `app_icon.png` with the same shipped brand brooch. Do not invent a second design.
