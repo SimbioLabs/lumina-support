@@ -4,11 +4,33 @@ Static support, privacy, and license pages for Lumina, an online collection game
 
 Repository: https://github.com/SimbioLabs/lumina-support
 
-GitHub Pages serves `main` at the repository root:
+## Hosting
 
-```text
-https://simbiolabs.github.io/lumina-support/
+GitHub Pages serves `main` from the repository root. This repo has no Pages workflow. A push to `main` is what publishes.
+
+The custom domain is the root [`CNAME`](./CNAME) file (`65b2492`). The file is one line: `support.lumina.cards`. DNS for that name is a CNAME to `simbiolabs.github.io`.
+
+Checked 2026-10-29:
+
+| URL | Response |
+|-----|----------|
+| `http://support.lumina.cards/` | **200** from GitHub Pages. Title is `Lumina - Suporte`. |
+| `https://support.lumina.cards/` | TLS fails. The certificate subject is `CN=*.github.io` (SAN includes `*.github.io` and `github.io`). It does not include `support.lumina.cards`. |
+| `https://simbiolabs.github.io/lumina-support/` | **301** to `http://support.lumina.cards/` (plain HTTP). |
+
+`lumina-web` `src/components/site-footer.tsx` sets `SUPPORT` to `https://simbiolabs.github.io/lumina-support` on both `main` and `stage`. Terms, privacy, refunds, and the support home are that prefix plus `terms.html`, `privacy.html`, `refund.html`, and `/`. A click follows the 301 onto `http://support.lumina.cards/`.
+
+Links inside these HTML files are relative (`terms.html`, `privacy.html`, `refund.html`), so they stay on the host that loaded the page.
+
+Re-check before changing the footer:
+
+```bash
+curl -sI http://support.lumina.cards/
+curl -sI https://simbiolabs.github.io/lumina-support/
+curl -svI https://support.lumina.cards/
 ```
+
+The third command is the handshake. When that certificate lists `support.lumina.cards` and a browser accepts `https://support.lumina.cards/`, the footer can use the custom domain. Until then the `github.io` HTTPS URL is a redirect onto HTTP.
 
 ## Pages
 
@@ -71,7 +93,7 @@ button. There is no automated test suite.
 
 ## Deploy
 
-Push to `main`. GitHub Pages serves the repository root.
+Push to `main`. GitHub Pages publishes the repository root on the host in [Hosting](#hosting). The `CNAME` file is the custom domain.
 
 Do not add a bundler, environment file, or backend call to these pages. They
 are public legal/support content and must stay static.
