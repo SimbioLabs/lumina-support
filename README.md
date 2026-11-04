@@ -1,3 +1,5 @@
+> **ARCHIVED 2026-11-04.** support.lumina.cards is retired. Content moved to https://lumina.cards/help, https://lumina.cards/privacy, https://lumina.cards/terms, https://lumina.cards/reimbursement and https://lumina.cards/license (`lumina-web`). Mapping: `index.html` → `/help`, `privacy.html` → `/privacy`, `terms.html` → `/terms`, `refund.html` → `/reimbursement`, `license.html` → `/license`.
+
 # Lumina Support Site
 
 Static support, privacy, and license pages for Lumina, an online collection game with a tarot / mystic theme. No build step and no dependencies: HTML files, one logo, and inline CSS/JS.
